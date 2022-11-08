@@ -1,0 +1,5 @@
+zad 1
+CREATE TABLE postac (id_postaci int PRIMARY KEY AUTO_INCREMENT, nazwa varchar(40), rodzal enum('wiking','ptak','kobieta'), data_ur date, wiek int CHECK (wiek >=0));
+INSERT INTO postac (nazwa, rodzal, data_ur, wiek) VALUES ('Bjorn','wiking','01.06.20','21'); 
+INSERT INTO postac (nazwa, rodzal, data_ur, wiek) VALUES ('Drozd','ptak','17.08.30','5'); 
+INSERT INTO postac (nazwa, rodzal, data_ur, wiek) VALUES ('Tesciowa','kobieta','1981.01.10','42'); 
