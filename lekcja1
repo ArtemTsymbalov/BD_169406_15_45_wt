@@ -10,18 +10,18 @@ INSERT INTO walizka (pojemnosc, kolor, id_wlasciciela) VALUES ('38','rozowy','3'
 Zad 3
 CREATE TABLE izba(adres_budynku varchar(50) NOT NULL, nazwa_izby varchar(30) NOT NULL, metraz int unsigned, wlasciciel int, FOREIGN KEY(wlasciciel) REFERENCES postac(id_postaci) ON DELETE SET NULL, PRIMARY KEY(adres_budynku, nazwa_izby));
 ALTER TABLE izba ADD COLUMN kolor varchar(20) DEFAULT 'czarny' AFTER metraz;
-INSERT INTO izba (adres_budynku, nazwa_izby, metraz, wlasciciel) VALUES ('rozwalna 12', 'spizarnia', 15, 1);
+INSERT INTO izba (adres_budynku, nazwa_izby, metraz, wlasciciel) VALUES ('gamingowa 12', 'izba_wikinga', 20, 1);
 Zad 4
-CREATE TABLE przetwory(id_przetworu int NOT NULL, PRIMARY KEY(id_przetworu), rok_produkcji int unsigned DEFAULT 1654, id_wykonawcy int, FOREIGN KEY(id_wykonawcy) REFERENCES postac(id_postaci), zawartosc char(20), dodatek char(22) DEFAULT 'papryczka chilli', id_konsumenta int, FOREIGN KEY(id_konsumenta) REFERENCES postac(id_postaci));
-INSERT INTO przetwory VALUES(1, 2010, 1, '20zl', 'bigos', 1);
-INSERT INTO przetwory VALUES(2, 1990, 1, '50zl', 'papryczka chilli', 1);
+CREATE TABLE przetwory(id_przetworu int NOT NULL, PRIMARY KEY(id_przetworu), rok_produkcji int unsigned DEFAULT 1654, id_wykonawcy int, FOREIGN KEY(id_wykonawcy) REFERENCES postac(id_postaci), wartosc char(20), dodatek char(22) DEFAULT 'papryczka chilli', id_konsumenta int, FOREIGN KEY(id_konsumenta) REFERENCES postac(id_postaci));
+INSERT INTO przetwory VALUES(1, 2010, 1, '30zl', 'bigos', 1);
+INSERT INTO przetwory VALUES(2, 1990, 1, '70zl', 'papryczka', 1);
 Zad 5
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(4, 'Scot', 'wiking', '1967-04-26', 55);
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(5, 'John', 'wiking', '1988-03-01', 35);
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(6, 'Sting', 'wiking', '1979-08-12', 43);
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(7, 'Badon', 'wiking', '2001-09-23', 21);
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(8, 'Szu', 'wiking', '1995-01-23', 27);
-INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(4, 'Scot', 'wiking', '1967-04-26', 55), (5, 'John', 'wiking', '1988-03-01', 35), (6, 'Sting', 'wiking', '1979-08-12', 43), (7, 'Badon', 'wiking', '2001-09-23', 21), (8, 'Szu', 'wiking', '1995-01-23', 27);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(4, '	Baleyg', 'wiking', '1966-06-25', 56);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(5, 'Farmatyr', 'wiking', '1977-07-03', 45);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(6, '	Fjolnir', 'wiking', '1988-08-11', 34);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(7, '	Gagnrad', 'wiking', '1999-09-26', 23);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(8, 'Gautatyr', 'wiking', '2000-01-23', 22);
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek)VALUES(4, '	Gelging', 'wiking', '1960-04-26', 62);
 CREATE TABLE statek(nazwa_statku varchar(25), PRIMARY KEY(nazwa_statku), rodzaj_statku enum('wielki', 'maly', 'sredni'), data_wodowania date, max_ladownosc int unsigned);
 INSERT INTO statek VALUES('mryt', 'wielki', '2010-11-30', 23), ('klonpirata', 'sredni', '2019-09-26', 13);
 ALTER TABLE postac ADD COLUMN funkcja char(30);
