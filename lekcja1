@@ -31,5 +31,4 @@ ALTER TABLE postac ADD FOREIGN KEY(id_statku) REFERENCES statek(nazwa_statku);
 UPDATE postac SET id_statku = 'mryt' WHERE id_postaci = 1 OR id_postaci = 2 OR id_postaci = 7 OR id_postaci = 8;
 UPDATE postac SET id_statku = 'klonpirata' WHERE id_postaci = 4 OR id_postaci = 5 OR id_postaci = 6;
 DELETE FROM izba WHERE nazwa_izby = 'spizarnia';
-
 DROP TABLE izba;
