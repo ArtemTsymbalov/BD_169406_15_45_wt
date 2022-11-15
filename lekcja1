@@ -16,12 +16,12 @@ CREATE TABLE przetwory(id_przetworu int NOT NULL, PRIMARY KEY(id_przetworu), rok
 INSERT INTO przetwory VALUES(1, 2010, 1, '30zl', 'bigos', 1);
 INSERT INTO przetwory VALUES(2, 1990, 1, '70zl', 'papryczka', 1);
 Zad 5
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(4, '	Baleyg', 'wiking', '1966-06-25', 56);
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(5, 'Farmatyr', 'wiking', '1977-07-03', 45);
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(6, '	Fjolnir', 'wiking', '1988-08-11', 34);
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(7, '	Gagnrad', 'wiking', '1999-09-26', 23);
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(8, 'Gautatyr', 'wiking', '2000-01-23', 22);
-INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(4, '	Gelging', 'wiking', '1960-04-26', 62);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(7, '	Baleyg', 'wiking', '1966-06-25', 56);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(8, 'Farmatyr', 'wiking', '1977-07-03', 45);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(9, '	Fjolnir', 'wiking', '1988-08-11', 34);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(10, '	Gagnrad', 'wiking', '1999-09-26', 23);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(11, 'Gautatyr', 'wiking', '2000-01-23', 22);
+INSERT INTO postac(id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(12, '	Gelging', 'wiking', '1960-04-26', 62);
 CREATE TABLE statek(nazwa_statku varchar(25), PRIMARY KEY(nazwa_statku), rodzaj_statku enum('wielki', 'maly', 'sredni'), data_wodowania date, max_ladownosc int unsigned);
 INSERT INTO statek VALUES('mryt', 'wielki', '2010-11-30', 23), ('klonpirata', 'sredni', '2019-09-26', 13);
 ALTER TABLE postac ADD COLUMN funkcja char(30);
