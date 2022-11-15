@@ -1,0 +1,6 @@
+zad 1
+DELETE FROM postac WHERE wiek='62';
+DELETE FROM postac WHERE wiek='56';
+
+
+zad2
