@@ -23,3 +23,7 @@ UPDATE postac SET pesel='11111111110' WHERE id_postaci='10';
 UPDATE postac SET pesel='11111111111' WHERE id_postaci='11';
 ALTER TABLE postac ADD PRIMARY KEY(PESEL);
 
+ALTER TABLE postac Modify COLUMN rodzal enum('wiking','ptak','kobieta','syrena');
+INSERT INTO postac(pesel, id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(11311111111 ,12, 'Gertruda Nieszczera ', 'syrena', '1968-07-25', 54);
+
+zad3
