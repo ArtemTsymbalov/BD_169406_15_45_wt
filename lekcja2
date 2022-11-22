@@ -27,19 +27,16 @@ ALTER TABLE postac Modify COLUMN rodzal enum('wiking','ptak','kobieta','syrena')
 INSERT INTO postac(pesel, id_postaci, nazwa, rodzal, data_ur, wiek)VALUES(11311111111 ,12, 'Gertruda Nieszczera ', 'syrena', '1968-07-25', 54);
 
 zad3
-UPDATE postac SET nazwa_statku='kraken' where nazwa regexp 'a';
-UPDATE postac SET nazwa_statku='kraken' where nazwa regexp 'a' AND rodzaj != 'kobieta';
-UPDATE postac SET nazwa_statku='kraken' where nazwa LIKE 'a';
+UPDATE postac SET nazwa_statku='mryt' where nazwa regexp 'a' AND rodzal != 'kobieta';
 
 UPDATE statek SET max_ladownosc = max_ladownosc * 0.7 where data_wodowania >= '1901-01-01' AND data_wodowania <='2000-12-31';
 
 ALTER TABLE postac ADD CHECK(wiek <= 1000);
 
 zad4
-ALTER TABLE postac MODIFY rodzaj enum('wiking','ptak','kobieta','syrena', 'waz');
+ALTER TABLE postac MODIFY rodzal enum('wiking','ptak','kobieta','syrena', 'waz');
 
-INSERT INTO postac (pesel,id_postaci,nazwa,rodzaj,data_ur,wiek) 
-    -> VALUES('94092478737', '10', 'Loko', 'waz', '1900-06-01', '122');
+INSERT INTO postac (pesel,id_postaci,nazwa,rodzal,data_ur,wiek) VALUES('94092478737', '10', 'Loko', 'waz', '1900-06-01', '122');
     
 CREATE TABLE Marynarz SELECT*FROM postac WHERE nazwa_statku IS NOT NULL;
 ALTER TABLE Marynarz ADD PRIMARY KEY(pesel);
@@ -47,13 +44,13 @@ ALTER TABLE Marynarz ADD FOREIGN KEY (nazwa_statku) REFERENCES statek(nazwa_stat
 ALTER TABLE Marynarz ADD CHECK(wiek > 0 AND wiek <= 1000);
 
 zad5
-UPDATE postac SET nazwa_statku = NULL where nazwa_statku = 'kraken';
-UPDATE Marynarz SET nazwa_statku = NULL where nazwa_statku = 'kraken';
+UPDATE postac SET nazwa_statku = NULL where nazwa_statku = 'mryt';
+UPDATE Marynarz SET nazwa_statku = NULL where nazwa_statku = 'mryt';
 DELETE FROM postac WHERE id_postaci='6';
 
 ALTER TABLE postac DROP FOREIGN KEY postac_ibfk_1;
 ALTER TABLE Marynarz DROP FOREIGN KEY Marynarz_ibfk_1;
-DELETE FROM statek;
+ALTER TABLE postac DROP FOREIGN KEY postac_ibfk_2;
 ALTER TABLE postac DROP COLUMN nazwa_statku;
 ALTER TABLE Marynarz DROP COLUMN nazwa_statku;
 DROP TABLE statek;
@@ -61,7 +58,7 @@ DROP TABLE statek;
 CREATE TABLE zwierz ( id INT PRIMARY KEY AUTO_INCREMENT, nazwa VARCHAR(20), wiek INT);
     
 
-INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzaj='ptak';
-INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzaj='waz';
+INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzal='ptak';
+INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzal='waz';
 
-INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzaj='ptak' OR rodzaj='waz';
+INSERT INTO zwierz (nazwa, wiek)  SELECT nazwa, wiek FROM postac  WHERE rodzal='ptak' OR rodzal='waz';
