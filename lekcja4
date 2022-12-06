@@ -27,8 +27,7 @@ SELECT kreatura.idKreatury, kreatura.nazwa, ekwipunek.idZasobu FROM kreatura LEF
 
 
 zad 4
-SELECT kreatura.nazwa, YEAR(kreatura.dataUr) AS rokUr, zasob.idZasobu, zasob.nazwa from kreatura
-CROSS JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu HAVING rokUr > 1670 AND rokUr < 1680;
+SELECT kreatura.nazwa, YEAR(kreatura.dataUr) AS rokUr, zasob.idZasobu, zasob.nazwa from kreatura CROSS JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu HAVING rokUr > 1670 AND rokUr < 1680;
 
 SELECT kreatura.nazwa, zasob.idZasobu, zasob.rodzaj FROM kreatura  JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu HAVING rodzaj='jedzenie' ORDER BY kreatura.dataUr ASC  LIMIT 5;
 
