@@ -23,9 +23,7 @@ SELECT kreatura.nazwa, ekwipunek.idZasobu AS ekwipunek, zasob.idZasobu  FROM kre
 SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu;
 SELECT kreatura.nazwa, ekwipunek.idZasobu AS ekwipunek, zasob.idZasobu, zasob.nazwa FROM kreatura INNER JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu;
 
-SELECT kreatura.idKreatury, kreatura.nazwa, ekwipunek.idZasobu FROM kreat
-ura LEFT JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury having idZ
-asobu is NULL;
+SELECT kreatura.idKreatury, kreatura.nazwa, ekwipunek.idZasobu FROM kreatura LEFT JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury having idZasobu is NULL;
 
 
 zad 4
