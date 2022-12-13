@@ -15,7 +15,7 @@ SELECT rodzaj, SUM(waga) AS suma_wag FROM zasob GROUP BY rodzaj;
 select nazwa, AVG(waga) AS srednia_waga, sum(ilosc), sum(waga) FROM zasob GROUP BY nazwa HAVING SUM(ilosc) >= 4 AND SUM(waga) > 10;
 
 SELECT rodzaj, count(distinct(nazwa)) FROM zasob GROUP BY rodzaj HAVING count(distinct(nazwa)) > 1;
-
+SELECT rodzaj, count(distinct(nazwa)) FROM zasob GROUP BY rodzaj HAVING min(ilosc) > 1;
 
 zad 3
 SELECT kreatura.nazwa, ekwipunek.idZasobu AS ekwipunek, zasob.idZasobu  FROM kreatura LEFT JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu;
@@ -35,5 +35,6 @@ SELECT e.nazwa, m.nazwa, e.idKreatury, m.idKreatury FROM kreatura e INNER join k
 
 zad 5
 SELECT kreatura.rodzaj, zasob.nazwa, AVG(zasob.waga)  FROM kreatura JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu GROUP BY kreatura.rodzaj HAVING kreatura.rodzaj != 'waz' AND kreatura.rodzaj != 'malpa' AND SUM(zasob.ilosc) < 30;
+SELECT e.nazwa, e.rodzaj, e.dataUr FROM kreatura e, (SELECT MIN(dataUr) AS min, MAX(dataUr) AS max FROM kreatura GROUP BY rodzaj) e2 WHERE dataUr=min OR dataUr=max;
 
 
